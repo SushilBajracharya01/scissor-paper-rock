@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
-import {EOptions, initialScore} from '../constants/constants';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import {EOptions, ERESULT, initialScore} from '../constants/constants';
 import {useAppDispatch, useAppSelector} from '../_redux/dispatch';
-import {setPlayAgain, setResult, setScore} from '../_redux/game';
+import {resetGame, setPlayAgain, setResult, setScore} from '../_redux/game';
+import {genericStyles} from '../constants/styles';
 
 function Result() {
   const dispatch = useAppDispatch();
@@ -12,6 +13,10 @@ function Result() {
 
   const handlePlayAgain = () => {
     dispatch(setPlayAgain());
+  };
+
+  const handleReset = () => {
+    dispatch(resetGame());
   };
 
   useEffect(() => {
@@ -25,17 +30,17 @@ function Result() {
     };
     if (!result) {
       if (userChoice === botChoice) {
-        dispatch(setResult('DRAW'));
+        dispatch(setResult(ERESULT.DRAW));
         handleUpdateScore('drawCount');
       } else if (
         (userChoice === EOptions.ROCK && botChoice === EOptions.SCISSOR) ||
         (userChoice === EOptions.PAPER && botChoice === EOptions.ROCK) ||
         (userChoice === EOptions.SCISSOR && botChoice === EOptions.PAPER)
       ) {
-        dispatch(setResult('WIN'));
+        dispatch(setResult(ERESULT.WIN));
         handleUpdateScore('winCount');
       } else {
-        dispatch(setResult('LOSE'));
+        dispatch(setResult(ERESULT.LOSE));
         handleUpdateScore('loseCount');
       }
     }
@@ -45,7 +50,19 @@ function Result() {
     <View style={styleSheet.resultContainer}>
       <Text style={styleSheet.result}>{result}</Text>
 
-      <Button title="Play Again" onPress={() => handlePlayAgain()} />
+      <View style={styleSheet.btnContainer}>
+        <TouchableHighlight
+          style={genericStyles.btn}
+          onPress={() => handlePlayAgain()}>
+          <Text>Play Again</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          style={genericStyles.btn}
+          onPress={() => handleReset()}>
+          <Text>Quit</Text>
+        </TouchableHighlight>
+      </View>
     </View>
   );
 }
@@ -68,5 +85,9 @@ const styleSheet = StyleSheet.create({
     textAlign: 'center',
     fontSize: 45,
     fontWeight: '500',
+  },
+  btnContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });

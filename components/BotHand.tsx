@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {EOptions} from '../constants/constants';
-import {genericStyles} from '../constants/styles';
 import {useAppDispatch, useAppSelector} from '../_redux/dispatch';
 import {setBotChoice} from '../_redux/game';
 import ChoiceDisplay from './UserChoice';
+import ShuffleBot from './ShuffleBot';
 
 function BotHand() {
   const {botChoice, show} = useAppSelector(state => state.game);
@@ -22,15 +22,7 @@ function BotHand() {
     }
   }, [botChoice, dispatch]);
 
-  return (
-    <View>
-      {show ? (
-        <ChoiceDisplay player="bot" />
-      ) : (
-        <Text style={genericStyles.choice}>XXXXX</Text>
-      )}
-    </View>
-  );
+  return <View>{show ? <ChoiceDisplay player="bot" /> : <ShuffleBot />}</View>;
 }
 
 export default BotHand;

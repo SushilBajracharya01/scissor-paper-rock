@@ -32,12 +32,19 @@ export default CountDown;
 
 const styleSheet = StyleSheet.create({
   countDown: {
+    width: 200,
     height: 200,
+    justifyContent: 'space-between',
+    backgroundColor: '#444',
+    alignSelf: 'center',
+    padding: 20,
+    borderRadius: 20,
   },
   counter: {
+    flex: 1,
+    textAlignVertical: 'center',
     textAlign: 'center',
-    fontSize: 100,
-    fontWeight: 'bold',
-    color: 'white',
+    fontSize: 45,
+    fontWeight: '500',
   },
 });

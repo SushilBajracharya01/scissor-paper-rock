@@ -9,3 +9,9 @@ export enum EOptions {
   PAPER = 'PAPER',
   SCISSOR = 'SCISSOR',
 }
+
+export enum ERESULT {
+  DRAW = 'DRAW',
+  WIN = 'WIN',
+  LOSE = 'LOSE',
+}

@@ -1,9 +1,8 @@
 import React from 'react';
 import {useAppDispatch, useAppSelector} from '../_redux/dispatch';
 import {EOptions} from '../constants/constants';
-import {resetGame, setStartGame, setUserChoice} from '../_redux/game';
+import {setStartGame, setUserChoice} from '../_redux/game';
 import {
-  Button,
   Image,
   SafeAreaView,
   StatusBar,
@@ -38,10 +37,6 @@ function Game() {
     dispatch(setUserChoice(choice));
   };
 
-  const handleReset = () => {
-    dispatch(resetGame());
-  };
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -51,6 +46,11 @@ function Game() {
       <View style={styleSheet.mainView}>
         {!startGame && (
           <View style={styleSheet.startScreen}>
+            <Image
+              source={require('../assets/images/logo.png')}
+              style={styleSheet.logoImg}
+            />
+
             <Text style={styleSheet.title}>ROCK PAPER SCISSOR</Text>
 
             <TouchableHighlight
@@ -128,10 +128,6 @@ function Game() {
                 </TouchableHighlight>
               </View>
             )}
-
-            <View>
-              <Button title="Reset" onPress={handleReset} />
-            </View>
           </View>
         )}
       </View>
@@ -145,11 +141,18 @@ const styleSheet = StyleSheet.create({
   mainView: {
     flex: 1,
   },
+  logoImg: {
+    width: 180,
+    height: 180,
+    alignSelf: 'center',
+    marginBottom: 10,
+    borderRadius: 20,
+  },
   startScreen: {
     flex: 1,
     color: 'white',
     padding: 16,
-    paddingTop: 200,
+    paddingTop: 100,
   },
   startBtn: {
     textAlign: 'center',
