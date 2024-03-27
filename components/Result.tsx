@@ -84,7 +84,7 @@ const styleSheet = StyleSheet.create({
     textAlignVertical: 'center',
     textAlign: 'center',
     fontSize: 45,
-    fontWeight: '500',
+    fontFamily: 'ChangaOneRegular',
   },
   btnContainer: {
     flexDirection: 'row',

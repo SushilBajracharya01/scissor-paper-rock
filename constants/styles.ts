@@ -17,8 +17,8 @@ export const genericStyles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   Icon: {
-    width: 80,
-    height: 80,
+    width: 120,
+    height: 120,
   },
   center: {
     textAlign: 'center',

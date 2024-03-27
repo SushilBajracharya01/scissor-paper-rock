@@ -24,6 +24,8 @@ function CountDown() {
   return (
     <View style={styleSheet.countDown}>
       <Text style={styleSheet.counter}>{count}</Text>
+
+      <Text style={styleSheet.message}>Choose your hand</Text>
     </View>
   );
 }
@@ -44,7 +46,11 @@ const styleSheet = StyleSheet.create({
     flex: 1,
     textAlignVertical: 'center',
     textAlign: 'center',
-    fontSize: 45,
-    fontWeight: '500',
+    fontSize: 90,
+    fontFamily: 'ChangaOneRegular',
+  },
+  message: {
+    fontFamily: 'AbelRegular',
+    textAlign: 'center',
   },
 });

@@ -75,6 +75,7 @@ function ChoiceDisplay({player}: IChoiceDisplayProps) {
         }
         break;
       default:
+        iconFile = require('../assets/images/rock_shadow.png');
         break;
     }
     setIcon(iconFile);

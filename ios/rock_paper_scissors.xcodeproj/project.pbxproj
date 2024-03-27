@@ -14,6 +14,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-rock_paper_scissors-rock_paper_scissorsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-rock_paper_scissors-rock_paper_scissorsTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4D31CB466897464999A807D0 /* AbelRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 24C77793D74648288511EF1F /* AbelRegular.ttf */; };
+		1113BE1900744111B18DB3A7 /* ChangaOneItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B85496C2DF1149AC8C0D213B /* ChangaOneItalic.ttf */; };
+		46834ECE2F2145F39AB2ABB6 /* ChangaOneRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E80646DB4454D7181D1AC24 /* ChangaOneRegular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = rock_paper_scissors/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-rock_paper_scissors-rock_paper_scissorsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rock_paper_scissors-rock_paper_scissorsTests.release.xcconfig"; path = "Target Support Files/Pods-rock_paper_scissors-rock_paper_scissorsTests/Pods-rock_paper_scissors-rock_paper_scissorsTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		24C77793D74648288511EF1F /* AbelRegular.ttf */ = {isa = PBXFileReference; name = "AbelRegular.ttf"; path = "../assets/fonts/AbelRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B85496C2DF1149AC8C0D213B /* ChangaOneItalic.ttf */ = {isa = PBXFileReference; name = "ChangaOneItalic.ttf"; path = "../assets/fonts/ChangaOneItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5E80646DB4454D7181D1AC24 /* ChangaOneRegular.ttf */ = {isa = PBXFileReference; name = "ChangaOneRegular.ttf"; path = "../assets/fonts/ChangaOneRegular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				E4C3AEC483874B968EEF8610 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +154,17 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		E4C3AEC483874B968EEF8610 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				24C77793D74648288511EF1F /* AbelRegular.ttf */,
+				B85496C2DF1149AC8C0D213B /* ChangaOneItalic.ttf */,
+				5E80646DB4454D7181D1AC24 /* ChangaOneRegular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -243,6 +261,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				4D31CB466897464999A807D0 /* AbelRegular.ttf in Resources */,
+				1113BE1900744111B18DB3A7 /* ChangaOneItalic.ttf in Resources */,
+				46834ECE2F2145F39AB2ABB6 /* ChangaOneRegular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

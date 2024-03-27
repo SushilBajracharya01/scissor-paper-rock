@@ -18,11 +18,12 @@ import Result from '../components/Result';
 import CountDown from '../components/CountDown';
 import {genericStyles} from '../constants/styles';
 import ChoiceDisplay from '../components/UserChoice';
+import ScoreBoard from '../components/ScoreBoard';
 
 function Game() {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const {score, startGame, userChoice, show} = useAppSelector(
+  const {startGame, userChoice, show, result} = useAppSelector(
     state => state.game,
   );
 
@@ -51,7 +52,7 @@ function Game() {
               style={styleSheet.logoImg}
             />
 
-            <Text style={styleSheet.title}>ROCK PAPER SCISSOR</Text>
+            <Text style={styleSheet.title}>SCISSOR PAPER ROCK</Text>
 
             <TouchableHighlight
               style={styleSheet.startBtn}
@@ -63,22 +64,7 @@ function Game() {
 
         {startGame && (
           <View style={styleSheet.gameScreen}>
-            <View style={styleSheet.scoreBoard}>
-              <View style={styleSheet.scoreView}>
-                <Text>Wins</Text>
-                <Text>{score.winCount}</Text>
-              </View>
-
-              <View style={styleSheet.scoreView}>
-                <Text>Draws</Text>
-                <Text>{score.drawCount}</Text>
-              </View>
-
-              <View style={styleSheet.scoreView}>
-                <Text>Loses</Text>
-                <Text>{score.loseCount}</Text>
-              </View>
-            </View>
+            <ScoreBoard />
 
             <BotHand />
 
@@ -90,7 +76,7 @@ function Game() {
               <CountDown />
             )}
 
-            {userChoice ? (
+            {userChoice || result ? (
               <ChoiceDisplay player="user" />
             ) : (
               <View style={styleSheet.btnContainer}>
@@ -100,7 +86,7 @@ function Game() {
                   }}
                   onPress={() => handleUserChoice(EOptions.ROCK)}>
                   <Image
-                    style={genericStyles.Icon}
+                    style={styleSheet.Icon}
                     source={require('../assets/images/rock.png')}
                   />
                 </TouchableHighlight>
@@ -111,7 +97,7 @@ function Game() {
                   }}
                   onPress={() => handleUserChoice(EOptions.PAPER)}>
                   <Image
-                    style={genericStyles.Icon}
+                    style={styleSheet.Icon}
                     source={require('../assets/images/paper.png')}
                   />
                 </TouchableHighlight>
@@ -122,7 +108,7 @@ function Game() {
                   }}
                   onPress={() => handleUserChoice(EOptions.SCISSOR)}>
                   <Image
-                    style={genericStyles.Icon}
+                    style={styleSheet.Icon}
                     source={require('../assets/images/scissor.png')}
                   />
                 </TouchableHighlight>
@@ -140,6 +126,7 @@ export default Game;
 const styleSheet = StyleSheet.create({
   mainView: {
     flex: 1,
+    fontFamily: 'AbelRegular',
   },
   logoImg: {
     width: 180,
@@ -151,7 +138,7 @@ const styleSheet = StyleSheet.create({
   startScreen: {
     flex: 1,
     color: 'white',
-    padding: 16,
+    padding: 20,
     paddingTop: 100,
   },
   startBtn: {
@@ -160,31 +147,29 @@ const styleSheet = StyleSheet.create({
     borderRadius: 8,
     color: '#FFFFFF',
     fontWeight: '500',
+    width: 200,
+    alignSelf: 'center',
     paddingVertical: 10,
     paddingHorizontal: 16,
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
+    fontSize: 48,
     textAlign: 'center',
     marginBottom: 60,
+    fontFamily: 'ChangaOneRegular',
+    color: 'white',
   },
   gameScreen: {
     flex: 1,
-  },
-  scoreBoard: {
-    flexDirection: 'row',
-    padding: 16,
-    marginBottom: 60,
-  },
-  scoreView: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   btnContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 16,
+    marginTop: 100,
+  },
+  Icon: {
+    width: 80,
+    height: 80,
   },
 });
