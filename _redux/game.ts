@@ -9,6 +9,7 @@ const initialState = {
   show: false,
   result: '',
   playAgain: false,
+  choose: false,
 };
 
 const gameSlice = createSlice({
@@ -33,7 +34,11 @@ const gameSlice = createSlice({
     setScore(state, action) {
       state.score = action.payload;
     },
+    setChoose(state, action) {
+      state.choose = action.payload;
+    },
     setPlayAgain(state) {
+      state.choose = false;
       state.show = false;
       state.result = '';
       state.botChoice = undefined;
@@ -52,6 +57,7 @@ export const {
   setShow,
   setResult,
   setScore,
+  setChoose,
   setPlayAgain,
   resetGame,
 } = gameSlice.actions;

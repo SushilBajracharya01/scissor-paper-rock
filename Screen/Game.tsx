@@ -1,22 +1,13 @@
 import React from 'react';
-import {useAppDispatch, useAppSelector} from '../_redux/dispatch';
-import {EOptions} from '../constants/constants';
-import {setUserChoice} from '../_redux/game';
-import {
-  Image,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  TouchableHighlight,
-  View,
-} from 'react-native';
+import {useAppSelector} from '../_redux/dispatch';
+import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 import BotHand from '../components/BotHand';
 import Result from '../components/Result';
 import CountDown from '../components/CountDown';
-import {genericStyles} from '../constants/styles';
 import ChoiceDisplay from '../components/UserChoice';
 import ScoreBoard from '../components/ScoreBoard';
 import StartScreen from '../components/StartScreen';
+import ChooseContainer from '../components/ChooseContainer';
 
 function Game() {
   const {startGame, userChoice, show, result} = useAppSelector(
@@ -25,12 +16,6 @@ function Game() {
 
   const backgroundStyle = {
     flex: 1,
-  };
-
-  const dispatch = useAppDispatch();
-
-  const handleUserChoice = (choice: EOptions) => {
-    dispatch(setUserChoice(choice));
   };
 
   return (
@@ -56,43 +41,7 @@ function Game() {
             {userChoice || result ? (
               <ChoiceDisplay player="user" />
             ) : (
-              <View style={styleSheet.btnContainer}>
-                <TouchableHighlight
-                  style={{
-                    ...genericStyles.btn,
-                  }}
-                  underlayColor="#E1AFD1"
-                  onPress={() => handleUserChoice(EOptions.ROCK)}>
-                  <Image
-                    style={styleSheet.Icon}
-                    source={require('../assets/images/rock.png')}
-                  />
-                </TouchableHighlight>
-
-                <TouchableHighlight
-                  style={{
-                    ...genericStyles.btn,
-                  }}
-                  underlayColor="#E1AFD1"
-                  onPress={() => handleUserChoice(EOptions.PAPER)}>
-                  <Image
-                    style={styleSheet.Icon}
-                    source={require('../assets/images/paper.png')}
-                  />
-                </TouchableHighlight>
-
-                <TouchableHighlight
-                  style={{
-                    ...genericStyles.btn,
-                  }}
-                  underlayColor="#E1AFD1"
-                  onPress={() => handleUserChoice(EOptions.SCISSOR)}>
-                  <Image
-                    style={styleSheet.Icon}
-                    source={require('../assets/images/scissor.png')}
-                  />
-                </TouchableHighlight>
-              </View>
+              <ChooseContainer />
             )}
           </View>
         )}
@@ -111,15 +60,5 @@ const styleSheet = StyleSheet.create({
   gameScreen: {
     flex: 1,
     backgroundColor: '#FFE6E6',
-  },
-  btnContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 16,
-    marginTop: 100,
-  },
-  Icon: {
-    width: 80,
-    height: 80,
   },
 });

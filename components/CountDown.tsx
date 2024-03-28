@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {useAppDispatch} from '../_redux/dispatch';
-import {setShow} from '../_redux/game';
+import {useAppDispatch, useAppSelector} from '../_redux/dispatch';
+import {setChoose, setShow} from '../_redux/game';
+import {EOptions} from '../constants/constants';
 
 function CountDown() {
+  const {choose} = useAppSelector(state => state.game);
   const dispatch = useAppDispatch();
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(2);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -16,16 +18,20 @@ function CountDown() {
   }, []);
 
   useEffect(() => {
-    if (!count) {
+    if (count === -1) {
+      dispatch(setChoose(true));
+    } else if (count < -1) {
       dispatch(setShow(true));
     }
   }, [count, dispatch]);
 
   return (
     <View style={styleSheet.countDown}>
-      <Text style={styleSheet.counter}>{count}</Text>
-
-      <Text style={styleSheet.message}>Choose your hand</Text>
+      {choose ? (
+        <Text style={styleSheet.message}>Choose!!!</Text>
+      ) : (
+        <Text style={styleSheet.counter}>{Object.values(EOptions)[count]}</Text>
+      )}
     </View>
   );
 }
@@ -46,13 +52,16 @@ const styleSheet = StyleSheet.create({
     flex: 1,
     textAlignVertical: 'center',
     textAlign: 'center',
-    fontSize: 90,
+    fontSize: 30,
     color: '#7469B6',
     fontFamily: 'ChangaOneRegular',
   },
   message: {
-    fontFamily: 'AbelRegular',
+    flex: 1,
+    fontFamily: 'ChangaOneRegular',
     textAlign: 'center',
+    textAlignVertical: 'center',
+    fontSize: 30,
     color: '#7469B6',
   },
 });
