@@ -3,9 +3,9 @@ import {Image, StyleSheet, View} from 'react-native';
 import {genericStyles} from '../constants/styles';
 
 function ShuffleBot() {
-  const shadowScissor = require('../assets/images/scissor_shadow.png');
-  const shadowRock = require('../assets/images/rock_shadow.png');
-  const shadowPapper = require('../assets/images/paper_shadow.png');
+  const shadowScissor = require('../assets/images/scissor.png');
+  const shadowRock = require('../assets/images/rock.png');
+  const shadowPapper = require('../assets/images/paper.png');
 
   const images = [shadowScissor, shadowRock, shadowPapper];
 

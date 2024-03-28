@@ -37,7 +37,7 @@ const styleSheet = StyleSheet.create({
     width: 200,
     height: 200,
     justifyContent: 'space-between',
-    backgroundColor: '#444',
+    backgroundColor: '#E1AFD1',
     alignSelf: 'center',
     padding: 20,
     borderRadius: 20,
@@ -47,10 +47,12 @@ const styleSheet = StyleSheet.create({
     textAlignVertical: 'center',
     textAlign: 'center',
     fontSize: 90,
+    color: '#7469B6',
     fontFamily: 'ChangaOneRegular',
   },
   message: {
     fontFamily: 'AbelRegular',
     textAlign: 'center',
+    color: '#7469B6',
   },
 });

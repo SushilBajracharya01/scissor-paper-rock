@@ -1,6 +1,7 @@
 import React from 'react';
 import {DimensionValue, StyleSheet, Text, View} from 'react-native';
 import {useAppSelector} from '../_redux/dispatch';
+import {genericStyles} from '../constants/styles';
 
 function ScoreBoard() {
   const {winCount, drawCount, loseCount} = useAppSelector(
@@ -8,21 +9,21 @@ function ScoreBoard() {
   );
 
   const winBarStyle = {
-    backgroundColor: 'green',
+    backgroundColor: '#83E85A',
     width: `${
       (winCount / (winCount + drawCount + loseCount)) * 100
     }%` as DimensionValue,
   };
 
   const loseBarStyle = {
-    backgroundColor: 'red',
+    backgroundColor: '#FF204E',
     width: `${
       (loseCount / (winCount + drawCount + loseCount)) * 100
     }%` as DimensionValue,
   };
 
   const drawBarStyle = {
-    backgroundColor: 'blue',
+    backgroundColor: '#EDE862',
     width: `${
       (drawCount / (winCount + drawCount + loseCount)) * 100
     }%` as DimensionValue,
@@ -32,18 +33,18 @@ function ScoreBoard() {
     <View style={styleSheet.scoreBoardContainer}>
       <View style={styleSheet.scoreBoard}>
         <View style={styleSheet.scoreView}>
-          <Text>Wins</Text>
-          <Text>{winCount}</Text>
+          <Text style={genericStyles.fontAbel}>Wins</Text>
+          <Text style={genericStyles.fontAbel}>{winCount}</Text>
         </View>
 
         <View style={styleSheet.scoreView}>
-          <Text>Draws</Text>
-          <Text>{drawCount}</Text>
+          <Text style={genericStyles.fontAbel}>Draws</Text>
+          <Text style={genericStyles.fontAbel}>{drawCount}</Text>
         </View>
 
         <View style={styleSheet.scoreView}>
-          <Text>Loses</Text>
-          <Text>{loseCount}</Text>
+          <Text style={genericStyles.fontAbel}>Loses</Text>
+          <Text style={genericStyles.fontAbel}>{loseCount}</Text>
         </View>
       </View>
 
@@ -61,6 +62,7 @@ export default ScoreBoard;
 const styleSheet = StyleSheet.create({
   scoreBoardContainer: {
     marginBottom: 20,
+    backgroundColor: '#AD88C6',
   },
   scoreBoard: {
     flexDirection: 'row',
@@ -79,6 +81,6 @@ const styleSheet = StyleSheet.create({
     alignContent: 'center',
     width: '100%',
     height: 10,
-    backgroundColor: '#333',
+    backgroundColor: '#E1AFD1',
   },
 });

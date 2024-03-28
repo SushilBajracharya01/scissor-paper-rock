@@ -9,7 +9,7 @@ export const genericStyles = StyleSheet.create({
   },
   btn: {
     textAlign: 'center',
-    backgroundColor: '#EA4C89',
+    backgroundColor: '#AD88C6',
     borderRadius: 8,
     color: '#FFFFFF',
     fontWeight: '500',
@@ -22,5 +22,13 @@ export const genericStyles = StyleSheet.create({
   },
   center: {
     textAlign: 'center',
+  },
+  fontAbel: {
+    fontFamily: 'AbelRegular',
+  },
+  linkText: {
+    fontFamily: 'AbelRegular',
+    color: '#7469B6',
+    fontSize: 18,
   },
 });

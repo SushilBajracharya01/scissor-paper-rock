@@ -52,15 +52,17 @@ function Result() {
 
       <View style={styleSheet.btnContainer}>
         <TouchableHighlight
-          style={genericStyles.btn}
+          underlayColor="#E1AFD1"
+          style={{...genericStyles.btn, ...styleSheet.playagainBtn}}
           onPress={() => handlePlayAgain()}>
-          <Text>Play Again</Text>
+          <Text style={genericStyles.fontAbel}>Play Again</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
           style={genericStyles.btn}
+          underlayColor="#E1AFD1"
           onPress={() => handleReset()}>
-          <Text>Quit</Text>
+          <Text style={genericStyles.fontAbel}>Quit</Text>
         </TouchableHighlight>
       </View>
     </View>
@@ -74,7 +76,7 @@ const styleSheet = StyleSheet.create({
     width: 200,
     height: 200,
     justifyContent: 'space-between',
-    backgroundColor: '#444',
+    backgroundColor: '#E1AFD1',
     alignSelf: 'center',
     padding: 20,
     borderRadius: 20,
@@ -84,10 +86,14 @@ const styleSheet = StyleSheet.create({
     textAlignVertical: 'center',
     textAlign: 'center',
     fontSize: 45,
+    color: '#7469B6',
     fontFamily: 'ChangaOneRegular',
   },
   btnContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  playagainBtn: {
+    backgroundColor: '#7469B6',
   },
 });
