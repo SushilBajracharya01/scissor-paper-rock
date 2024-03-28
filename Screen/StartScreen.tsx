@@ -7,14 +7,19 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+import {genericStyles} from '../constants/styles';
 import {useAppDispatch} from '../_redux/dispatch';
 import {setStartGame} from '../_redux/game';
-import {genericStyles} from '../constants/styles';
 
-export default function StartScreen() {
+export default function StartScreen({navigation}: any) {
   const dispatch = useAppDispatch();
   const handleLinkClick = () => {
     Linking.openURL('https://sushilbajracharya.com.np/');
+  };
+
+  const handleOnStartPress = () => {
+    dispatch(setStartGame());
+    navigation.navigate('Game');
   };
 
   return (
@@ -32,7 +37,7 @@ export default function StartScreen() {
           <TouchableHighlight
             style={styleSheet.startBtn}
             underlayColor="#E1AFD1"
-            onPress={() => dispatch(setStartGame())}>
+            onPress={handleOnStartPress}>
             <Text style={styleSheet.startBtnText}>Start Game</Text>
           </TouchableHighlight>
         </View>

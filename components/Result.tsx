@@ -5,7 +5,7 @@ import {useAppDispatch, useAppSelector} from '../_redux/dispatch';
 import {resetGame, setPlayAgain, setResult, setScore} from '../_redux/game';
 import {genericStyles} from '../constants/styles';
 
-function Result() {
+function Result({navigation}: {navigation: any}) {
   const dispatch = useAppDispatch();
   const {score, userChoice, botChoice, result} = useAppSelector(
     state => state.game,
@@ -17,6 +17,7 @@ function Result() {
 
   const handleReset = () => {
     dispatch(resetGame());
+    navigation.navigate('Start');
   };
 
   useEffect(() => {

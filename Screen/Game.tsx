@@ -6,10 +6,9 @@ import Result from '../components/Result';
 import CountDown from '../components/CountDown';
 import ChoiceDisplay from '../components/UserChoice';
 import ScoreBoard from '../components/ScoreBoard';
-import StartScreen from '../components/StartScreen';
 import ChooseContainer from '../components/ChooseContainer';
 
-function Game() {
+function Game({navigation}: {navigation: any}) {
   const {startGame, userChoice, show, result} = useAppSelector(
     state => state.game,
   );
@@ -22,8 +21,6 @@ function Game() {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={'light-content'} />
       <View style={styleSheet.mainView}>
-        {!startGame && <StartScreen />}
-
         {startGame && (
           <View style={styleSheet.gameScreen}>
             <ScoreBoard />
@@ -32,7 +29,7 @@ function Game() {
 
             {show ? (
               <View>
-                <Result />
+                <Result navigation={navigation} />
               </View>
             ) : (
               <CountDown />
