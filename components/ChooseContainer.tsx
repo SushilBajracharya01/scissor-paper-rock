@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, TouchableHighlight, View} from 'react-native';
 import {EOptions} from '../constants/constants';
 import {useAppDispatch, useAppSelector} from '../_redux/dispatch';
-import {setUserChoice} from '../_redux/game';
+import {setShow, setUserChoice} from '../_redux/game';
 import {genericStyles} from '../constants/styles';
 
 function ChooseContainer() {
@@ -11,6 +11,7 @@ function ChooseContainer() {
 
   const handleUserChoice = (choice: EOptions) => {
     dispatch(setUserChoice(choice));
+    dispatch(setShow(true));
   };
   return (
     <View style={styleSheet.btnContainer}>
